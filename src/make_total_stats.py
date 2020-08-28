@@ -10,6 +10,7 @@ def make_stats(path):
             records = [el for el in SeqIO.parse(pth, 'genbank')]
 
             pth = pth.split('/')[-1]
+            print(pth)
             acc_id_list = pth.split('_')
 
             acc_id = f"{acc_id_list[0]}_{acc_id_list[1]}"
