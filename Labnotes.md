@@ -1,3 +1,11 @@
+### 0. Make table of available genomes
+
+<pre><code>python make_total_stats.py --genbank /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+
+or
+
+<pre><code>python make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+
 ### 1. Covert infercars format to tsv
 
 **parse_to_df.py** script converts _data/blocks_coords.infercars_, _data/blocks_coords_unique_gene.infercars_ files to _results/all_blocks.tsv_ and _results/common_blocks.tsv_ files correspondingly.
