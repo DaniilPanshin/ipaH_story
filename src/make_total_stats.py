@@ -1,6 +1,7 @@
 import glob
 import argparse
 from Bio import SeqIO
+import pandas as pd
 
 
 def make_stats(path):
@@ -34,6 +35,11 @@ def make_stats(path):
                         f"{acc_id}\t{ass_name}\tChromosome\t{rec.id}\t{animal}\t{len(rec)}\t{'yes' if len(records) > 1 else 'no'}\n")
 
 
+def sort_table_by_cromosome(df):
+    df = df.sort_values(by=['Type', 'AssemblyID'])
+    return df
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Make total_stats.tsv table for list of GenBank file')
     parser.add_argument('-gb', '--genbank', type=str, nargs='*', help='Input GenBank files')
@@ -41,3 +47,5 @@ if __name__ == "__main__":
 
     files = args.genbank
     make_stats(files)
+    out_df = sort_table_by_cromosome(pd.read_csv('total_stats.tsv', sep='\t'))
+    out_df.to_csv('total_stats.tsv', sep='\t', index=None)
