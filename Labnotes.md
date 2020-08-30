@@ -8,7 +8,7 @@ or
 
 ### 1. Run SibeliaZ
 
-<pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o sibeliaz_out genome_assemblies/fna/merged.fna</code></pre>
+<pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o /results/sibeliaz_out genome_assemblies/fna/merged.fna</code></pre>
 
 ### 2. Convert Ragout output to .infercars format
 
@@ -18,7 +18,7 @@ or
 
 ### 3. Convert .invercars to .tsv
 
-<pre><code>python /src/parse_to_df.py -i blocks_coords.infercars -o blocks_coords.tsv</code></pre>
+<pre><code>python /src/parse_to_df.py -i /results/ragout_out/1000/blocks_coords.infercars -o /results/ragout_out/1000/blocks_coords.tsv</code></pre>
 
 ### 1. Covert infercars format to tsv
 
