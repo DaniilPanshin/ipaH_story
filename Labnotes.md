@@ -1,10 +1,10 @@
 ### 0. Make table of available genomes
 
-<pre><code>python make_total_stats.py --genbank /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+<pre><code>python /src/make_total_stats.py --genbank /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 or
 
-<pre><code>python make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+<pre><code>python /src/make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 ### 1. Run SibeliaZ
 
@@ -12,11 +12,13 @@ or
 
 ### 2. Convert Ragout output to .infercars format
 
-<pre><code>python ragout_to_infercars.py -dir /results/ragout_out/1000/</code></pre>
+<pre><code>python /src/ragout_to_infercars.py -dir /results/ragout_out/1000/</code></pre>
 
 *blocks_coords.infercars* file will appear in *ragout_out* folder.
 
-### 3. 
+### 3. Convert .invercars to .tsv
+
+<pre><code>python /src/parse_to_df.py -i blocks_coords.infercars -o blocks_coords.tsv</code></pre>
 
 ### 1. Covert infercars format to tsv
 
