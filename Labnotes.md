@@ -10,6 +10,14 @@ or
 
 <pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o sibeliaz_out genome_assemblies/fna/merged.fna</code></pre>
 
+### 2. Convert Ragout output to .infercars format
+
+<pre><code>python ragout_to_infercars.py -dir /results/ragout_out/1000/</code></pre>
+
+*blocks_coords.infercars* file will appear in *ragout_out* folder.
+
+### 3. 
+
 ### 1. Covert infercars format to tsv
 
 **parse_to_df.py** script converts _data/blocks_coords.infercars_, _data/blocks_coords_unique_gene.infercars_ files to _results/all_blocks.tsv_ and _results/common_blocks.tsv_ files correspondingly.
