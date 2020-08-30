@@ -8,7 +8,7 @@ or
 
 ### 1. Run SibeliaZ
 
-<pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o sibeliaz_out genome_assemblies/fna/merged.fna<pre><code>
+<pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o sibeliaz_out genome_assemblies/fna/merged.fna</code></pre>
 
 ### 1. Covert infercars format to tsv
 
