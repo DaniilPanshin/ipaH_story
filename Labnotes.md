@@ -1,10 +1,16 @@
-### 0. Make table of available genomes
+### 0. Data preprocessing
+
+#### Make table of available genomes
 
 <pre><code>python /src/make_total_stats.py --genbank /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 or
 
 <pre><code>python /src/make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+
+#### Make table of IpaH/invasion plasmit antigen features
+
+<pre><code>python take_IpaH_features_coords.py -i /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 ### 1. Run SibeliaZ
 
