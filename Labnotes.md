@@ -2,11 +2,7 @@
 
 #### Make table of available genomes
 
-<pre><code>python /src/make_total_stats.py --genbank /path_to/genome_assemblies/gbff/*.gbff</code></pre>
-
-or
-
-<pre><code>python /src/make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+<pre><code>python /src/make_total_stats.py --genbank /path_to/genome_assemblies/gbff/*.gbff</code></pre> or <pre><code>python /src/make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 Output will be written to *total_stats.tsv* file
 
