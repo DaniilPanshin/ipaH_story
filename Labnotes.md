@@ -12,7 +12,7 @@ Output will be written to *total_stats.tsv* file
 
 #### Make table of IpaH/invasion plasmit antigen features
 
-<pre><code>python take_IpaH_features_coords.py -i /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+<pre><code>python /src/take_IpaH_features_coords.py -i /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 Output will be written to *IpaH_features.tsv* file
 
