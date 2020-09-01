@@ -8,9 +8,13 @@ or
 
 <pre><code>python /src/make_total_stats.py -gb /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
+Output will be written to *total_stats.tsv* file
+
 #### Make table of IpaH/invasion plasmit antigen features
 
 <pre><code>python take_IpaH_features_coords.py -i /path_to/genome_assemblies/gbff/*.gbff</code></pre>
+
+Output will be written to *IpaH_features.tsv* file
 
 ### 1. Run SibeliaZ
 
