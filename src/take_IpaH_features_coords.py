@@ -29,6 +29,7 @@ if __name__ == "__main__":
 
     files = args.input
     key_words = ('IpaH', 'ipaH', 'invasion plasmid antigen')
+    restriction_words = ('IpaJ', 'ipaJ')
     df = pd.DataFrame(columns=['AssemblyID', 'GenBankID', 'ChrType', 'FeatureName', 'FeatureStart', 'FeatureEnd'])
 
     count = 0
@@ -62,13 +63,14 @@ if __name__ == "__main__":
                 else:
                     f_name = feat.qualifiers['note'][0]
 
-                df = df.append({'AssemblyID': assembly_id,
-                                'GenBankID': gb_id,
-                                'FeatureName': f_name,
-                                'ChrType': chr_type,
-                                'FeatureStart': f_start,
-                                'FeatureEnd': f_end},
-                               ignore_index=True)
+                if f_name not in restriction_words:
+                    df = df.append({'AssemblyID': assembly_id,
+                                    'GenBankID': gb_id,
+                                    'FeatureName': f_name,
+                                    'ChrType': chr_type,
+                                    'FeatureStart': f_start,
+                                    'FeatureEnd': f_end},
+                                   ignore_index=True)
 
     df = df.sort_values(by=['AssemblyID', 'ChrType', 'FeatureStart'])
     df = df.drop_duplicates().reset_index(drop=True)
