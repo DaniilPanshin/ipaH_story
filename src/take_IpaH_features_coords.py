@@ -19,6 +19,32 @@ def check_q_values(f, key_words):
                 return True
 
 
+def define_f_name(f):
+    if feat.type == 'CDS' or feat.type == 'gene':
+        if 'gene' in feat.qualifiers:
+            f_name = feat.qualifiers['gene'][0]
+            return f_name
+        elif 'product' in feat.qualifiers:
+            f_name = feat.qualifiers['product'][0]
+            return f_name
+    else:
+        f_name = feat.qualifiers['note'][0]
+        return f_name
+
+
+def filter_restrictions(f_name, restriction_words):
+    result = set()
+    for word in restriction_words:
+        if word in f_name:
+            result.add(True)
+        else:
+            result.add(False)
+    if True in result:
+        return False
+    else:
+        return True
+
+
 if __name__ == "__main__":
 
     parser = argparse.ArgumentParser(description='Write all IpaH features to table with coordinates')
@@ -54,26 +80,15 @@ if __name__ == "__main__":
             for feat in set(chromosomal_features):
                 f_start = feat.location.start
                 f_end = feat.location.end
-
-                if feat.type == 'CDS' or feat.type == 'gene':
-                    if 'gene' in feat.qualifiers:
-                        f_name = feat.qualifiers['gene'][0]
-                    elif 'product' in feat.qualifiers:
-                        f_name = feat.qualifiers['product'][0]
-                else:
-                    f_name = feat.qualifiers['note'][0]
-
-                for word in restriction_words:
-                    if word in f_name:
-                        pass
-                    else:
-                        df = df.append({'AssemblyID': assembly_id,
-                                        'GenBankID': gb_id,
-                                        'FeatureName': f_name,
-                                        'ChrType': chr_type,
-                                        'FeatureStart': f_start,
-                                        'FeatureEnd': f_end},
-                                       ignore_index=True)
+                f_name = define_f_name(f)
+                if filter_restrictions(f_name, restriction_words):
+                    df = df.append({'AssemblyID': assembly_id,
+                                    'GenBankID': gb_id,
+                                    'ChrType': chr_type,
+                                    'FeatureName': f_name,
+                                    'FeatureStart': f_start,
+                                    'FeatureEnd': f_end},
+                                   ignore_index=True)
 
     df = df.sort_values(by=['AssemblyID', 'ChrType', 'FeatureStart'])
     df = df.drop_duplicates().reset_index(drop=True)
