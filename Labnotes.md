@@ -16,13 +16,25 @@ Output will be written to *IpaH_features.tsv* file
 
 <pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o /results/sibeliaz_out genome_assemblies/fna/merged.fna</code></pre>
 
-### 2. Convert Ragout output to .infercars format
+### 2. Run Ragout
+
+<pre><code>ragout-maf2synteny -s fine.txt -o /results/ragout_out/ /results/sibeliaz_out/blocks_coords.gff -b 1000</code></pre>
+
+*fine.txt* file contains:
+
+<pre><code>
+30 150
+100 500
+500 1500
+</code></pre>
+
+### 3. Convert Ragout output to .infercars format
 
 <pre><code>python /src/ragout_to_infercars.py -dir /results/ragout_out/1000/</code></pre>
 
 *blocks_coords.infercars* file will appear in *ragout_out* folder.
 
-### 3. Convert .invercars to .tsv
+### 4. Convert .invercars to .tsv
 
 <pre><code>python /src/parse_to_df.py -i /results/ragout_out/1000/blocks_coords.infercars -o /results/ragout_out/1000/blocks_coords.tsv</code></pre>
 
