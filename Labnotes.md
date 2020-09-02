@@ -22,8 +22,7 @@ Output will be written to *IpaH_features.tsv* file
 
 *fine.txt* file contains:
 
-<pre><code>
-30 150
+<pre><code>30 150
 100 500
 500 1500
 </code></pre>
