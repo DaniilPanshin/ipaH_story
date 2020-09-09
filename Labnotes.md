@@ -6,11 +6,17 @@
 
 Output will be written to *total_stats.tsv* file
 
-#### Make table of IpaH/invasion plasmit antigen features
+#### Make table of IpaH/invasion plasmid antigen features
 
 <pre><code>python /src/take_IpaH_features_coords.py -i /path_to/genome_assemblies/gbff/*.gbff</code></pre>
 
 Output will be written to *IpaH_features.tsv* file
+
+#### Extract all IpaH genes from reference *Shigella flexneri 2a str. 301* genome (assembly GCA_000006925.2)
+
+<pre><code>python /src/extract_IpaH_features.py -i /path_to/genome_assemblies/gbff/GCA_000006925.2_ASM692v2_genomic.gbff -o /data/IpaH_from_reference.fa</code></pre>
+
+This will produce output with 13 IpaH genes.
 
 ### 1. Run SibeliaZ
 
