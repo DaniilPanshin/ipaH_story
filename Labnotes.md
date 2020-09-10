@@ -12,11 +12,11 @@ Output will be written to *total_stats.tsv* file
 
 Output will be written to *IpaH_features.tsv* file
 
-#### Extract all IpaH genes from reference *Shigella flexneri 2a str. 301* genome (assembly GCA_000006925.2)
+#### Extract all IpaH proteins from reference *Shigella flexneri 2a str. 301* genome (assembly GCA_000006925.2)
 
 <pre><code>python /src/extract_IpaH_features.py -i /path_to/genome_assemblies/gbff/GCA_000006925.2_ASM692v2_genomic.gbff -o /data/IpaH_from_reference.fa</code></pre>
 
-This will produce output with 13 IpaH genes.
+This will produce output with 13 IpaH proteins.
 
 ### 1. Run SibeliaZ
 
