@@ -1,5 +1,8 @@
 import argparse
 from Bio import SeqIO
+from Bio.Seq import Seq
+from Bio.SeqRecord import SeqRecord
+
 
 def check_CDS_and_genes(f, key_words):
     if f.type == 'CDS' or f.type == 'gene':
@@ -79,7 +82,9 @@ if __name__ == "__main__":
                     if feat.type == 'CDS':
                         f_name = define_f_name(f)
                         if filter_restrictions(f_name, restriction_words):
-                            new_feat = feat.extract(rec)
-                            new_feat.id = f_name
-                            new_feat.description = chr_type
+                            for k in feat.qualifiers:
+                                if k == 'translation':
+                                    f_seq = feat.qualifiers[k][0]
+
+                            new_feat = SeqRecord(seq=Seq(f_seq), id=f_name, description=chr_type)
                             SeqIO.write(new_feat, out_f, 'fasta')
