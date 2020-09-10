@@ -18,6 +18,20 @@ Output will be written to *IpaH_features.tsv* file
 
 This will produce output with 13 IpaH proteins.
 
+### 1. BLAST search
+
+#### Make blast database from merged genomes
+
+<pre><code>makeblastdb -in /path_to/genome_assemblies/fna/merged.fna -dbtype nucl -out /path_to/genome_assemblies/db/genomes_db</code></pre>
+
+#### Search
+
+<pre><code>tblastn -query data/IpaH_from_reference.fa -db /path_to/genome_assemblies/db/genomes_db -out results/tblastn_result.tsv -max_target_seqs 100500 -outfmt "7 qseqid sseqid pident qcovhsp length evalue qstart qend sstart send sframe"</code></pre>
+
+#### Filter results
+
+
+
 ### 1. Run SibeliaZ
 
 <pre><code>sibeliaz -a 2000 -k 15 -b 300 -n -t 2 -o /results/sibeliaz_out genome_assemblies/fna/merged.fna</code></pre>
@@ -42,6 +56,16 @@ This will produce output with 13 IpaH proteins.
 ### 4. Convert .invercars to .tsv
 
 <pre><code>python /src/parse_to_df.py -i /results/ragout_out/1000/blocks_coords.infercars -o /results/ragout_out/1000/blocks_coords.tsv</code></pre>
+
+### 5. To be continued...
+
+
+
+
+
+
+
+PASS
 
 ### 1. Covert infercars format to tsv
 
