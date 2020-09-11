@@ -28,8 +28,9 @@ This will produce output with 13 IpaH proteins.
 
 <pre><code>tblastn -query data/IpaH_from_reference.fa -db /path_to/genome_assemblies/db/genomes_db -out results/tblastn_result.tsv -max_target_seqs 100500 -outfmt "7 qseqid sseqid bitscore pident qcovhsp length evalue qstart qend sstart send sframe"</code></pre>
 
-#### Filter results
+#### Process results
 
+<pre><code>draw_plots_from_tblastn.py</code></pre>
 
 
 ### 1. Run SibeliaZ
