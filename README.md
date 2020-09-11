@@ -61,6 +61,8 @@ This will produce output with 13 IpaH proteins.
 ### 5. To be continued...
 
 
+Pfam for NEL family: https://www.ebi.ac.uk/interpro/entry/pfam/PF14496/
+
 
 
 
